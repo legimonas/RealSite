@@ -1,1 +1,1 @@
-web: java -cp target/classes/:target/dependency/* com.company.servlets.HomeServlet
+web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/RealSite-0.1.war
