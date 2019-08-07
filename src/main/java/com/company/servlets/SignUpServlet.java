@@ -56,7 +56,7 @@ public class SignUpServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
+        //try {
 
 
             String name = req.getParameter("name");
@@ -69,16 +69,16 @@ public class SignUpServlet extends HttpServlet {
                 User user = new User(usersDao.MaxId() + 1, name, Password, birthdate, usermail);
                 user.hashPassword();
                 if (usersDao.Save(user)) {
-                    MailSender sender = new MailSender("legimonas1000@gmail.com", "12Ad23Sf34Dg");
-                    sender.SendMessage(usermail, "thank you for registration", "You've registered!!!\nYour name: " + name + "\nBirth Date: " + birthdate);
+                    //MailSender sender = new MailSender("legimonas1000@gmail.com", "12Ad23Sf34Dg");
+                    //sender.SendMessage(usermail, "thank you for registration", "You've registered!!!\nYour name: " + name + "\nBirth Date: " + birthdate);
                     req.getServletContext().getRequestDispatcher("/jsp/login.jsp").forward(req, resp);
                 } else {
                     req.getServletContext().getRequestDispatcher("/jsp/signup.jsp").forward(req, resp);
                 }
 
             }
-        }catch (MessagingException e){
-            throw new IllegalStateException(e);
-        }
+        //}catch (MessagingException e){
+        //    throw new IllegalStateException(e);
+        //}
     }
 }

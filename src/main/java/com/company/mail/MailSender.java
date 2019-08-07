@@ -27,6 +27,7 @@ public class MailSender {
         this.SenderPas = senderpas;
         this.session = Session.getDefaultInstance(props,
                 new Authenticator() {
+                    @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(sender, senderpas);
                     }
